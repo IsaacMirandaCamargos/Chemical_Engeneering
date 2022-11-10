@@ -9,7 +9,7 @@ def baskara(l):
     try:
         t1 = (-b-sqrt(delta))/2*a
         print(t1)
-    except:k
+    except:
         None
     try:
         t2 = (-b+sqrt(delta))/2*a
@@ -28,10 +28,6 @@ def interpolar(xinter):
     return yinter
 
 
-x1 = 5
-x2 = 10
-y1 = 58.03
-y2 = 67.03
-#interpolar(9)
 
-baskara([-25, 250, 750-2692.8])
+x1 = 43.34; x2 = 66.67; y1 = 9525; y2 = 15875
+interpolar(80)
