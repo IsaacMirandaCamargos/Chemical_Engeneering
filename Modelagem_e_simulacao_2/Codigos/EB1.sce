@@ -39,8 +39,9 @@ end
 //------------------------------------------------------------------------------
 //                             Balanço por componente
 //------------------------------------------------------------------------------
-MMx = 25.13
-MMs = 180
+MMx = 25.5
+MMs = 162
+MMp = 86
 
 
 function r=balanco_componente(x)
@@ -49,19 +50,21 @@ function r=balanco_componente(x)
     c=x(3)
     d=x(4)
     e=x(5)
+    f=x(6)
     
     
    
-    r(1)= c + d -6
-    r(2)= -3*b -12 + c* 1.79+ e *2
-    r(3)= 0.56*c +2*d + e -6 - 2*a
-    r(4)= -b + 0.17 *c
-    r(5)= 0.37 * MMs - c * MMx
-    
+    r(1)= 0.78571*c*MMx - f*MMp
+    r(2)= c + d + 4*f - 6
+    r(3)= -3*b + 2*c + 6*f + 2*e - 10
+    r(4)= -2*a + 0.5*c + 2*d + e + 2*f - 5
+    r(5)= -b + 0.25*c
+    r(6)= 1.3*a - d
 endfunction
 
-xchute=[0.1;0.1;0.1;0.1;0.1]
+xchute=[0.1;0.1;0.1;0.1;0.1;0.1]
 [sol,v,info]=fsolve(xchute, balanco_componente)
+
 if info==1 then
     mprintf(' Solução do balanço por componente:\n\n')
     mprintf(' a : %f\n', sol(1))
@@ -69,7 +72,8 @@ if info==1 then
     mprintf(' c : %f\n', sol(3))
     mprintf(' d : %f\n', sol(4))
     mprintf(' e : %f\n', sol(5))
-    
+    mprintf(' f : %f\n', sol(6))
+        
 else
     disp('Tente novamente!')
 end
