@@ -152,9 +152,9 @@ class Placa:
 
 
 ti = time.time()
-placa = Placa(1, 1, 0.020)
+placa = Placa(1, 1, 0.05)
 placa.edge_degrees(esquerda=100, direita=200, cima=100, baixo=50)
 placa.descovering_degrees()
-# placa.plot_points(0)
+placa.plot_points(0)
 
 print(time.time() - ti)
